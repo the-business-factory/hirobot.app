@@ -1,4 +1,4 @@
-class SignIns::NewPage < AuthLayout
+class SignIns::NewPage < GuestLayout
   needs operation : SignInUser
 
   def content
@@ -9,11 +9,9 @@ class SignIns::NewPage < AuthLayout
   private def render_sign_in_form(op)
     form_for SignIns::Create do
       sign_in_fields(op)
-      submit "Sign In", flow_id: "sign-in-button"
+      submit "Sign In", class: "primary-button", flow_id: "sign-in-button"
     end
     link "Reset password", to: PasswordResetRequests::New
-    text " | "
-    link "Sign up", to: SignUps::New
   end
 
   private def sign_in_fields(op)

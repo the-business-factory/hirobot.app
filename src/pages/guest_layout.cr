@@ -1,8 +1,10 @@
-abstract class AuthLayout
+abstract class GuestLayout
   include Lucky::HTMLPage
 
   abstract def content
   abstract def page_title
+
+  needs current_user : User?
 
   # The default page title. It is passed to `Shared::LayoutHead`.
   #
@@ -15,12 +17,20 @@ abstract class AuthLayout
   def render
     html_doctype
 
-    html lang: "en" do
+    html lang: "en", data_theme: "night" do
       mount Shared::LayoutHead, page_title: page_title
 
-      body do
+      body class: "font-inter" do
+        mount Shared::Navbar, simple: true
         mount Shared::FlashMessages, context.flash
-        content
+
+        main do
+          div class: "col-span-2 mx-auto prose" do
+            content
+          end
+        end
+
+        mount Shared::Footer, user: current_user
       end
     end
   end

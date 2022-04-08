@@ -1,8 +1,18 @@
 import * as Turbo from "@hotwired/turbo"
-
 import { Application } from "@hotwired/stimulus"
 
-// import MyController from "./controllers/my_controller"
+import RemovableController from "./controllers/removable_controller";
+import ToggleController from "./controllers/toggle_controller";
 
-window.Stimulus = Application.start()
-// Stimulus.register("my-controller", MyController)
+require("@rails/ujs").start();
+
+declare global {
+  interface Window {
+    Stimulus: any;
+    var: String;
+  }
+}
+
+let Stimulus = (window.Stimulus = Application.start());
+Stimulus.register("toggle", ToggleController);
+Stimulus.register("removable", RemovableController);

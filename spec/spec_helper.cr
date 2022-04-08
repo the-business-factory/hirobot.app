@@ -13,6 +13,8 @@ require "../db/migrations/**"
 # configuring LuckyFlow, starting the app server, etc.
 require "./setup/**"
 
+Avram::SpecHelper.use_transactional_specs(AppDatabase)
+
 include Carbon::Expectations
 include Lucky::RequestExpectations
 include LuckyFlow::Expectations

@@ -1,0 +1,1 @@
+[The App Manifest](slack_app_manifest.json) is included both an an example and a reflection of the configuration of the hiro.bot app as of 4/8/2022.
