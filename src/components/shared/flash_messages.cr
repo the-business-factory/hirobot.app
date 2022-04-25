@@ -4,7 +4,7 @@ class Shared::FlashMessages < BaseComponent
   def render
     flash.each do |flash_type, flash_message|
       div data_controller: "removable", class: "bg-primary-600" do
-        div class: "max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8" do
+        div class: "max-w-7xl mx-auto px-3 sm:px-6 lg:px-8" do
           div class: "flex items-center justify-between flex-wrap" do
             div class: "w-0 flex-1 flex items-center" do
               span class: "flex p-2 rounded-lg bg-primary-800" do

@@ -9,7 +9,6 @@ require("@rails/ujs").start();
 declare global {
   interface Window {
     Stimulus: any;
-    var: String;
   }
 }
 

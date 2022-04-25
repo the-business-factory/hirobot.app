@@ -8,7 +8,7 @@ targets:
   app:
     main: src/hirobot_app.cr
 
-crystal: 1.4.0
+crystal: 1.4.1
 
 dependencies:
   lucky:
@@ -32,9 +32,16 @@ dependencies:
   jwt:
     github: crystal-community/jwt
     version: ~> 1.6.0
+  raven:
+    github: Sija/raven.cr
+  slack:
+    github: the-business-factory/slack.cr
+    branch: main
+  opentelemetry-instrumentation:
+    github: wyhaines/opentelemetry-instrumentation.cr
+development_dependencies:
   ameba:
     github: crystal-ameba/ameba
-development_dependencies:
   lucky_flow:
     github: luckyframework/lucky_flow
     version: ~> 0.7.3

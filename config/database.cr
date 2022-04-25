@@ -3,6 +3,12 @@ database_name = "hirobot_app_#{LuckyEnv.environment}"
 AppDatabase.configure do |settings|
   if LuckyEnv.production?
     settings.credentials = Avram::Credentials.parse(ENV["DATABASE_URL"])
+
+    # cleans up idle connections once they're 10 minutes old
+    # settings.max_connection_length = 600
+
+    # if a connection isn't idle but is expired, try again in 15 seconds
+    # settings.reaping_retry_delay = 15
   else
     settings.credentials = Avram::Credentials.parse?(ENV["DATABASE_URL"]?) || Avram::Credentials.new(
       database: database_name,
@@ -13,6 +19,12 @@ AppDatabase.configure do |settings|
       # Some Postgres installations require no password. Use "" if that is the case.
       password: ENV["DB_PASSWORD"]? || "postgres"
     )
+
+    # cleans up idle connections once they're 5 minutes old
+    # settings.max_connection_length = 15
+
+    # if a connection isn't idle but is expired, try again in 15 seconds
+    # settings.reaping_retry_delay = 15
   end
 end
 

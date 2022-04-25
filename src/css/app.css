@@ -83,3 +83,11 @@ h1.hero-text {
 a.btn {
   @apply no-underline;
 }
+
+.footer {
+  @apply sm:h-screen md:h-screen p-5 sm:p-10;
+}
+
+.footer div {
+  @apply inline-grid;
+}

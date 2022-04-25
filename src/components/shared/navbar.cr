@@ -5,7 +5,7 @@ class Shared::Navbar < BaseComponent
     nav class: "navbar bg-base-100" do
       div class: "flex-1" do
         a class: "btn btn-ghost normal-case text-xl" do
-          img src: asset("images/hiro.svg"), width: 48, height: 48
+          img src: asset("images/hiro.svg"), width: 42, height: 42
         end
       end
       div class: "flex-none gap-2" do

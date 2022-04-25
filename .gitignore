@@ -14,5 +14,3 @@ start_server
 yarn-error.log
 .vscode/
 .env
-.overmind.env
-.env
