@@ -1,4 +1,4 @@
-class SlackComponents::JobInfoResponse < Slack::UI::CustomComponent
+struct SlackComponents::JobInfoResponse < Slack::UI::CustomComponent
   property username
 
   def initialize(@username : String)
@@ -43,6 +43,9 @@ class SlackComponents::JobInfoResponse < Slack::UI::CustomComponent
     TextSection.render markdown: true, text: <<-MD
     thanks for keeping this channel useful to all of our members,
     :heart: Rails Slack Team
+
+    PS - If this message isn't relevant, feel free to add :x: as a reaction and
+    the message will self destruct in a couple of seconds.
     MD
   end
 end

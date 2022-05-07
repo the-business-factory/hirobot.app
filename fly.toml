@@ -17,6 +17,10 @@ processes = []
   allowed_public_ports = []
   auto_rollback = true
 
+[metrics]
+  port = 9091
+  path = "/metrics"
+
 [[services]]
   internal_port = 8080
   processes = ["app"]
@@ -39,7 +43,7 @@ processes = []
 
   [[services.tcp_checks]]
     grace_period = "1s"
-    interval = "15s"
+    interval = "30s"
     restart_limit = 0
     timeout = "2s"
 

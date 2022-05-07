@@ -51,11 +51,11 @@ shards:
 
   db: # Overridden
     git: https://github.com/the-business-factory/crystal-db.git
-    version: 0.11.0+git.commit.5a4f4a2624ada8e251702dffd9d77727bb24efa1
+    version: 0.11.0+git.commit.8fabce76c86536c8810f7b1272ff6b1669ad813e
 
   defined:
     git: https://github.com/wyhaines/defined.cr.git
-    version: 0.3.3
+    version: 0.3.4
 
   dexter:
     git: https://github.com/luckyframework/dexter.git
@@ -107,19 +107,19 @@ shards:
 
   opentelemetry-api:
     git: https://github.com/wyhaines/opentelemetry-api.cr.git
-    version: 0.2.4
+    version: 0.3.2
 
   opentelemetry-instrumentation:
     git: https://github.com/wyhaines/opentelemetry-instrumentation.cr.git
-    version: 0.3.0
+    version: 0.3.3
 
   parse_date:
     git: https://github.com/wyhaines/parsedate.cr.git
     version: 0.1.2
 
-  pg:
-    git: https://github.com/will/crystal-pg.git
-    version: 0.26.0
+  pg: # Overridden
+    git: https://github.com/the-business-factory/crystal-pg.git
+    version: 0.26.0+git.commit.aafb68acee6ea57f2f36828ddbf2af3cc1cfc1c1
 
   protobuf:
     git: https://github.com/jeromegn/protobuf.cr.git
@@ -128,6 +128,10 @@ shards:
   pulsar:
     git: https://github.com/luckyframework/pulsar.git
     version: 0.2.3
+
+  rate_limiter:
+    git: https://github.com/lbarasti/rate_limiter.git
+    version: 1.0.1
 
   raven:
     git: https://github.com/sija/raven.cr.git
@@ -147,7 +151,7 @@ shards:
 
   slack:
     git: https://github.com/the-business-factory/slack.cr.git
-    version: 0.1.0+git.commit.e1d43bc1fce083659c0d894a1cc04cc46e93a73d
+    version: 0.1.0+git.commit.2900d8e71db8e883234c18912b6590ec3b3362a2
 
   splay_tree_map:
     git: https://github.com/wyhaines/splay_tree_map.cr.git

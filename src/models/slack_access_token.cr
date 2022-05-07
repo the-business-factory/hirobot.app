@@ -5,6 +5,6 @@ class SlackAccessToken < BaseModel
     belongs_to slack_team : SlackTeam
     column token : String
     column expires_at : Time?
-    column json_body : JSON::Any
+    column json_body : Slack::AuthResponse, serialize: true
   end
 end

@@ -37,6 +37,8 @@ dependencies:
   slack:
     github: the-business-factory/slack.cr
     branch: main
+  opentelemetry-api:
+    github: wyhaines/opentelemetry-api.cr
   opentelemetry-instrumentation:
     github: wyhaines/opentelemetry-instrumentation.cr
 development_dependencies:

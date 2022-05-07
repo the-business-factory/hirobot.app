@@ -38,3 +38,5 @@ services:
         sync: false
       - key: SLACK_SIGNING_SECRET
         sync: false
+      - key: OPENTEL_APP_NAME
+        sync: false
