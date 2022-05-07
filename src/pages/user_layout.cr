@@ -1,14 +1,14 @@
-abstract class MainLayout
+abstract class UserLayout
   include Lucky::HTMLPage
 
   # 'needs current_user : User' makes it so that the current_user
-  # is always required for pages using MainLayout
+  # is always required for pages using UserLayout
   needs current_user : User
 
   abstract def content
   abstract def page_title
 
-  # MainLayout defines a default 'page_title'.
+  # UserLayout defines a default 'page_title'.
   #
   # Add a 'page_title' method to your indivual pages to customize each page's
   # title.
@@ -30,16 +30,15 @@ abstract class MainLayout
       mount Shared::LayoutHead, page_title: page_title
 
       body do
+        mount Shared::Navbar, user: current_user
         mount Shared::FlashMessages, context.flash
-        render_signed_in_user
-        content
+
+        main do
+          content
+        end
+
+        mount Shared::Footer, user: current_user
       end
     end
-  end
-
-  private def render_signed_in_user
-    text current_user.email
-    text " - "
-    link "Sign out", to: SignIns::Delete, flow_id: "sign-out-button"
   end
 end

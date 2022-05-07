@@ -1,0 +1,64 @@
+# fly.toml file generated for hirobot-app on 2022-04-13T10:40:17-07:00
+
+app = "hirobot-app"
+
+kill_signal = "SIGINT"
+kill_timeout = 5
+processes = []
+
+[deploy]
+  release_command = "lucky db.migrate"
+  strategy = "bluegreen"
+
+[env]
+  PRIMARY_REGION = "sea"
+
+[experimental]
+  allowed_public_ports = []
+  auto_rollback = true
+
+[[services]]
+  internal_port = 8080
+  processes = ["app"]
+  protocol = "tcp"
+  script_checks = []
+
+  [services.concurrency]
+    hard_limit = 1000
+    soft_limit = 750
+    type = "connections"
+
+  [[services.ports]]
+    force_https = true
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+  [[services.tcp_checks]]
+    grace_period = "1s"
+    interval = "15s"
+    restart_limit = 0
+    timeout = "2s"
+
+  [[services.http_checks]]
+    interval = 60000
+    grace_period = "5s"
+    method = "get"
+    path = "/health"
+    protocol = "http"
+    timeout = "2s"
+    tls_skip_verify = false
+
+    [services.http_checks.headers]
+      X-Forwarded-Proto = "https"
+
+  [[statics]]
+    guest_path = "/app/public/css"
+    url_prefix = "/css"
+
+  [[statics]]
+    guest_path = "/app/public/js"
+    url_prefix = "/js"

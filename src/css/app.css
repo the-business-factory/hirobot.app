@@ -1,3 +1,93 @@
 @tailwind base;
+
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+  h3 {
+    @apply text-lg;
+  }
+  a {
+    @apply text-blue-600 underline;
+  }
+  img {
+    @apply inline-block;
+  }
+
+  .big-center-button {
+    @apply w-full flex justify-center py-2 px-4 my-4 border
+      border-transparent text-sm font-medium rounded-md;
+  }
+}
+
 @tailwind components;
 @tailwind utilities;
+@tailwind variants;
+
+main  {
+  @apply bg-primary-content p-6
+}
+
+p {
+   @apply py-4
+}
+
+h1.title {
+  @apply text-primary-900 font-bold text-2xl
+}
+
+.field-error {
+  @apply block w-full sm:text-sm rounded-md
+    pr-1 focus:outline-none my-4
+    border-red-300 text-red-700 placeholder-red-300
+    focus:ring-red-500 focus:border-red-500
+}
+
+.error {
+  @apply my-4 text-lg font-bold text-primary-100
+}
+
+.field-success {
+  @apply block w-full sm:text-sm rounded-md my-4
+    focus:ring-primary-500 focus:border-primary-500 border-gray-300
+}
+
+.primary-button {
+  @apply big-center-button  text-white
+    bg-primary-600 hover:bg-primary-500 cursor-pointer focus:outline-none
+    focus:border-primary-700 active:bg-primary-700 transition duration-150
+    ease-in-out;
+}
+
+a.showcase {
+  @apply mx-1 px-1 py-1;
+}
+
+a.showcase:hover {
+  @apply transition duration-150 ease-in-out bg-secondary-focus rounded-sm;
+}
+
+h1.hero-text {
+  @apply text-5xl font-bold mb-0
+}
+
+.inactive-button {
+  @apply big-center-button bg-gray-200 text-gray-600 border-gray-200
+  hover:bg-gray-800 hover:text-gray-200 hover:border-gray-700
+  hover:cursor-default;
+}
+
+a.btn {
+  @apply no-underline;
+}
+
+.footer {
+  @apply sm:h-screen md:h-screen p-5 sm:p-10;
+}
+
+.footer div {
+  @apply inline-grid;
+}

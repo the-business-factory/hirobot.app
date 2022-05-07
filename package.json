@@ -1,17 +1,32 @@
 {
   "scripts": {
-    "build:js": "esbuild src/js/* --outdir=public/js --bundle",
-    "build:css": "tailwindcss --input=src/css/app.css --output=public/css/app.css",
-    "dev:js": "yarn build:js --watch",
-    "dev:css": "yarn build:css --watch",
-    "dev": "yarn build:js && yarn build:css",
-    "prod": "yarn build:js --minify && yarn build:css",
+    "build:js": "esbuild src/js/app.ts --bundle --sourcemap=inline --outfile=public/js/app.js",
+    "build:css": "tailwindcss --postcss --input=src/css/app.css --output=public/css/app.css",
+    "watch:js": "yarn build:js --watch",
+    "watch:css": "yarn build:css --watch",
+    "prod:js": "esbuild src/js/app.ts --bundle --minify --sourcemap=inline --outfile=public/js/app.js",
+    "prod:css": "tailwindcss --postcss --minify --input=src/css/app.css --output=public/css/app.css",
+    "prod": "yarn prod:js && yarn prod:css",
     "heroku-postbuild": "yarn prod"
   },
-  "devDependencies": {
+  "dependencies": {
     "@hotwired/stimulus": "^3.0.1",
     "@hotwired/turbo": "^7.1.0",
-    "esbuild": "^0.14.25",
-    "tailwindcss": "^3.0.23"
+    "@rails/ujs": "^7.0.2",
+    "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tailwindcss/forms": "^0.5.0",
+    "@tailwindcss/typography": "^0.5.2",
+    "autoprefixer": "^10.4.4",
+    "daisyui": "^2.13.0",
+    "esbuild": "^0.14.34",
+    "postcss": "^8.4.12",
+    "tailwindcss": "^3.0.23",
+    "tailwindcss-font-inter": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.23",
+    "browser-sync": "^2.27.9",
+    "prettier": "^2.6.2",
+    "typescript": "^4.6.3"
   }
 }

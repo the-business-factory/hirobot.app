@@ -35,6 +35,6 @@ class AuthenticationFlow < BaseFlow
   end
 
   private def sign_out_button
-    el("@sign-out-button")
+    el("@nav-sign-out-button")
   end
 end

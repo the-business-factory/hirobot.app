@@ -1,0 +1,40 @@
+databases:
+  - name: Hirobot Primary
+    databaseName: hirobot
+    postgresMajorVersion: 14
+    user: hirobot
+    ipAllowList: []
+
+services:
+  - type: web
+    name: Hirobot
+    env: docker
+    dockerfilePath: "./Dockerfile"
+    healthCheckPath: /
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: Hirobot Primary
+          property: connectionString
+      - key: LUCKY_ENV
+        value: production
+      - key: NODE_ENV
+        value: production
+      - key: APP_DOMAIN
+        sync: false
+      - key: NEW_RELIC_LICENSE_KEY
+        sync: false
+      - key: OAUTH_REDIRECT_URL
+        sync: false
+      - key: SECRET_KEY_BASE
+        sync: false
+      - key: SENTRY_DSN
+        sync: false
+      - key: SLACK_APP_ID
+        sync: false
+      - key: SLACK_CLIENT_ID
+        sync: false
+      - key: SLACK_CLIENT_SECRET
+        sync: false
+      - key: SLACK_SIGNING_SECRET
+        sync: false

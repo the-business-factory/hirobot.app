@@ -1,7 +1,23 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+const colors = require("tailwindcss/colors");
+
 module.exports = {
-  content: ["./src/**/*.cr", "./public/*.js"],
+  content: ["./src/**/*.css", "./src/**/*.cr", "./src/**/*.ts"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: colors.rose,
+      },
+      fontFamily: {
+        sans: ["Inter var", ...defaultTheme.fontFamily.sans],
+      },
+    },
   },
-  plugins: [],
-}
+  plugins: [
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/typography"),
+    require("@tailwindcss/aspect-ratio"),
+    require("tailwindcss-font-inter"),
+    require('daisyui'),
+  ],
+};

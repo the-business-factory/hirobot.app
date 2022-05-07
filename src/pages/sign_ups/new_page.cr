@@ -1,4 +1,4 @@
-class SignUps::NewPage < AuthLayout
+class SignUps::NewPage < GuestLayout
   needs operation : SignUpUser
 
   def content
@@ -9,7 +9,7 @@ class SignUps::NewPage < AuthLayout
   private def render_sign_up_form(op)
     form_for SignUps::Create do
       sign_up_fields(op)
-      submit "Sign Up", flow_id: "sign-up-button"
+      submit "Sign Up", class: "primary-button", flow_id: "sign-up-button"
     end
     link "Sign in instead", to: SignIns::New
   end
