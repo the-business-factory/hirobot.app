@@ -1,51 +1,40 @@
 # CacheChannelInfo caches a channel's name as a SlackChannel record; this allows
 # for user-friendly channel names to be used in place of channel IDs.
 class CacheChannelInfo
-  alias Message = Slack::Events::Message
+  getter channel_id, team_id
 
-  record Info, name : String, id : String
-
-  @channel : String
-  @slack_team : SlackTeam
-  @team_id : String
-
-  getter team_id, channel, slack_team
-
-  def initialize(message : Message::FileShare | Message)
-    @team_id = message.team_id.not_nil!
-    @channel = message.channel
-    @slack_team = SlackTeamQuery.new.slack_id(@team_id).first
+  def initialize(@channel_id : String, @team_id : String)
   end
 
-  def run
-    cache = SlackChannelQuery
-      .new
-      .slack_team_id(slack_team.id)
-      .slack_id(channel)
-      .first?
+  def run : SlackChannel?
+    PerformanceTrace.trace("Caching Channel Info") { run! }
+  end
 
-    return Info.new(name: cache.name, id: channel) if cache
+  private def run!
+    channel = SlackChannelQuery.new.slack_id(channel_id).first?
 
-    access_token = SlackAccessTokenQuery
-      .new
-      .slack_team_id(slack_team.id)
-      .created_at
-      .desc_order
-      .first
+    return channel if channel
 
-    conversation = Slack::Api::ConversationsInfo
-      .new(access_token.token, channel)
-      .call
+    return unless token = SlackAccessTokenQuery
+                    .new
+                    .join_slack_team
+                    .where_slack_team(SlackTeamQuery.new.slack_id(team_id))
+                    .preload_slack_team
+                    .created_at
+                    .desc_order
+                    .first?
+
+    conversation = PerformanceTrace.trace("Slack API: ConversationsInfo") do
+      Slack::Api::ConversationsInfo.new(token.token, channel_id).call
+    end
 
     case conversation
     when Slack::Models::PublicChannel
       SaveSlackChannel.upsert!(
         name: conversation.name,
-        slack_id: channel,
-        slack_team_id: slack_team.id,
+        slack_id: channel_id,
+        slack_team_id: token.slack_team.id,
       )
-
-      Info.new(name: conversation.name, id: channel)
     end
   end
 end

@@ -1,11 +1,12 @@
 class SlackWebhookEvent < SlackAction
   post "/slack/webhook_events" do
-    event_payload = Slack.process_webhook(request)
-    case event_payload
+    payload = trace("Processing Webhook") { Slack.process_webhook(request) }
+
+    case payload
     when Slack::UrlVerification
-      json(event_payload.response)
+      json(payload.response)
     else
-      WebhookEventHandler.handle_event(event_payload.event)
+      trace("Handling Event") { WebhookEventHandler.handle_event(payload.event) }
       json({ok: true})
     end
   rescue exc
