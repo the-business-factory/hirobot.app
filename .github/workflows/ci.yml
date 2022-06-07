@@ -10,7 +10,7 @@ jobs:
   CheckFormat:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3.0.2
 
       - uses: oprypin/install-crystal@v1
         with:
@@ -52,17 +52,13 @@ jobs:
       fail-fast: true
       matrix:
         crystal_version:
-          - 1.4.0
           - latest
         experimental:
           - false
-        include:
-          - crystal_version: nightly
-            experimental: true
 
     services:
       postgres:
-        image: postgres:12-alpine
+        image: postgres:14-alpine
         env:
           POSTGRES_PASSWORD: postgres
         ports:
@@ -75,7 +71,7 @@ jobs:
           --health-retries 5
 
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3.0.2
 
       - uses: oprypin/install-crystal@v1
         with:
