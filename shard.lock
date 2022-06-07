@@ -107,11 +107,11 @@ shards:
 
   opentelemetry-api:
     git: https://github.com/wyhaines/opentelemetry-api.cr.git
-    version: 0.3.2
+    version: 0.3.3
 
   opentelemetry-instrumentation:
     git: https://github.com/wyhaines/opentelemetry-instrumentation.cr.git
-    version: 0.3.3
+    version: 0.3.4
 
   parse_date:
     git: https://github.com/wyhaines/parsedate.cr.git
