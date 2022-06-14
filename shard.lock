@@ -51,11 +51,11 @@ shards:
 
   db: # Overridden
     git: https://github.com/the-business-factory/crystal-db.git
-    version: 0.11.0+git.commit.7b644cf91b851ed9d45f6a84f710c202fefeedf7
+    version: 0.11.0+git.commit.b3b4e6f6cc354429ec65e22d779d37d2398ba446
 
   defined:
     git: https://github.com/wyhaines/defined.cr.git
-    version: 0.3.4
+    version: 0.3.6
 
   dexter:
     git: https://github.com/luckyframework/dexter.git
