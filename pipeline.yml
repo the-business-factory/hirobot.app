@@ -1,0 +1,8 @@
+steps:
+
+# Test build
+  - name: "Build and upload :docker: image"
+    plugins:
+      docker-compose:
+        build: app
+        image-repository: index.docker.io/robcole/crystal
