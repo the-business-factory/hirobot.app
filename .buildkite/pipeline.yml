@@ -6,3 +6,5 @@ steps:
       docker-compose:
         build: app
         image-repository: index.docker.io/robcole/crystal
+    agents:
+      queue: arm64
