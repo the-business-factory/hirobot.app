@@ -1,0 +1,10 @@
+FROM alpine:latest
+RUN apk add --update --no-cache yaml-dev yaml-static coreutils \
+    crystal shards \
+    zlib-dev zlib-static libxml2-dev pcre-dev libevent-static \
+    libffi-dev git g++ make automake libtool autoconf curl \
+    musl-dev gcc pcre-dev libevent-dev clang clang-dev \
+    openssl openssl-dev openssl-libs-static
+WORKDIR /tmp
+RUN git clone https://github.com/emeryberger/Hoard
+RUN cd Hoard/src && make && cd ../.. && mv Hoard /usr/local/Hoard
