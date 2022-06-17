@@ -1,10 +1,10 @@
 steps:
-
-# Test build
   - name: "Build and upload :docker: image"
     plugins:
-      docker-compose:
-        build: app
-        image-repository: index.docker.io/robcole/crystal
-    agents:
+      - docker-login#v2.0.1:
+        username: robcole
+      - docker-compose#v3.9.0:
+          build: app
+            image-repository: index.docker.io/robcole/crystal
+  agents:
       queue: arm64
