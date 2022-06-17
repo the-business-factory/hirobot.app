@@ -10,6 +10,11 @@ services:
       - type: volume
         source: postgres_data_hirobot_app
         target: /var/lib/postgresql/data
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.baseimage
+    image: robcole/crystal:1.4.1-alpine-hoard
 
 volumes:
   postgres_data_hirobot_app:

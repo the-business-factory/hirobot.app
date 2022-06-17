@@ -1,7 +1,7 @@
-FROM crystallang/crystal:1.4.1-alpine as crystal_malloc
+FROM 84codes/crystal:1.4.1-alpine as crystal_malloc
 RUN apk add --no-cache bash dpkg git
 RUN apk add --no-cache autoconf automake make
-RUN apk add --no-cache clang clang-dev gcc lld musl-dev g++
+RUN apk add --no-cache clang clang-dev gcc lld musl-dev g++ gmp-dev
 RUN ln -sf /usr/bin/clang /usr/bin/cc
 RUN ln -sf /usr/bin/clang++ /usr/bin/c++
 RUN update-alternatives --install /usr/bin/cc cc /usr/bin/clang 10
@@ -17,7 +17,7 @@ WORKDIR /tmp
 RUN git clone https://github.com/emeryberger/Hoard
 RUN cd Hoard/src && make
 
-FROM crystallang/crystal:1.4.1-alpine as crystal_dependencies
+FROM crystal_malloc as crystal_dependencies
 ENV LUCKY_ENV=production
 ENV SKIP_LUCKY_TASK_PRECOMPILATION=1
 WORKDIR /shards
@@ -30,7 +30,7 @@ COPY . .
 RUN yarn install
 RUN yarn prod
 
-FROM crystallang/crystal:1.4.1-alpine as lucky_tasks_build
+FROM crystal_malloc as lucky_tasks_build
 ENV LUCKY_ENV=production
 RUN apk --no-cache add yaml-static
 COPY . .
@@ -38,7 +38,7 @@ COPY --from=crystal_dependencies /shards/lib lib
 COPY --from=asset_build /assets/public public
 RUN crystal build --static --release tasks.cr -o /usr/local/bin/lucky
 
-FROM crystallang/crystal:1.4.1-alpine as lucky_webserver_build
+FROM crystal_malloc as lucky_webserver_build
 WORKDIR /webserver_build
 RUN apk --no-cache add yaml-static coreutils
 ENV LUCKY_ENV=production
