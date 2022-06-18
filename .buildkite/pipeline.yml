@@ -1,10 +1,6 @@
+agents:
+  queue: arm64
+
 steps:
   - name: "Build and upload :docker: image"
-    plugins:
-      - docker-login#v2.0.1:
-        username: robcole
-      - docker-compose#v3.9.0:
-          build: app
-            image-repository: index.docker.io/robcole/crystal
-  agents:
-      queue: arm64
+    command: "docker-compose build app && docker-compose push app"
