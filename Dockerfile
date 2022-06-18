@@ -35,7 +35,7 @@ RUN apk --no-cache add postgresql-client tzdata
 COPY --from=lucky_tasks_build /usr/local/bin/lucky /usr/local/bin/lucky
 COPY --from=lucky_webserver_build /usr/local/bin/webserver webserver
 COPY --from=asset_build /assets/public public
-COPY --from=robcole/crystal:1.4.1-horde-latest /usr/lib/Hoard /app/Hoard
+COPY --from=robcole/crystal:1.4.1-horde-latest /usr/local/lib/Hoard /app/Hoard
 
 ENV PORT 8080
 ENV LD_PRELOAD /app/Hoard/libhoard.so
