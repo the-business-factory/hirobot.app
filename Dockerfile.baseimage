@@ -15,7 +15,4 @@ RUN update-alternatives --display c++
 RUN update-alternatives --display ld
 WORKDIR /tmp
 RUN git clone https://github.com/emeryberger/Hoard
-RUN cd Hoard/src && make
-
-FROM 84codes/crystal:1.4.1-alpine
-COPY --from=crystal_malloc /tmp/Hoard /usr/local/lib/Hoard
+RUN cd Hoard/src && make && cd ../.. && mv Hoard /usr/local/Hoard
