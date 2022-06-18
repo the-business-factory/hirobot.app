@@ -3,7 +3,7 @@ ENV LUCKY_ENV=production
 ENV SKIP_LUCKY_TASK_PRECOMPILATION=1
 WORKDIR /shards
 COPY shard.* ./
-RUN  shards install --production
+RUN shards install --production
 
 FROM node:alpine as asset_build
 WORKDIR /assets

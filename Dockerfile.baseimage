@@ -1,4 +1,4 @@
-FROM 84codes/crystal:1.4.1-alpine
+FROM 84codes/crystal:1.4.1-alpine as crystal_malloc
 RUN apk add --no-cache bash dpkg git
 RUN apk add --no-cache autoconf automake make
 RUN apk add --no-cache clang clang-dev gcc lld musl-dev g++ gmp-dev
@@ -16,3 +16,6 @@ RUN update-alternatives --display ld
 WORKDIR /tmp
 RUN git clone https://github.com/emeryberger/Hoard
 RUN cd Hoard/src && make
+
+FROM 84codes/crystal:1.4.1-alpine
+COPY --from=crystal_malloc /tmp/Hoard /usr/local/lib/Hoard

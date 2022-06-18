@@ -1,6 +1,5 @@
-agents:
-  queue: arm64
-
 steps:
   - name: "Build and upload :docker: image"
-    command: "docker-compose build app && docker-compose push app"
+    command: "docker build -t robcole/crystal:1.4.1-horde-arm64 --build-arg ARCH=arm64 - < Dockerfile.baseimage && docker push robcole/crystal:1.4.1-horde-arm64"
+    agents:
+      queue: arm64
