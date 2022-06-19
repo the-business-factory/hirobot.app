@@ -1,6 +1,6 @@
 services:
   app:
-    image: robcole/crystal:lucky-amd64
+    image: robcole/crystal:lucky
     volumes:
       - ./:/app
       - node_modules:/app/node_modules
@@ -19,7 +19,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.baseimage
-    image: robcole/crystal:lucky-amd64
+    image: robcole/crystal:lucky-${ARCH:-amd64}
 
 volumes:
   postgres_data_hirobot_app:

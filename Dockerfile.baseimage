@@ -1,5 +1,6 @@
 ARG NODE_VERSION=current
 ARG CRYSTAL_VERSION=1.4.1
+ARG DATABASE_URL=postgres://postgres:postgres@host.docker.internal:5432/postgres
 
 FROM 84codes/crystal:${CRYSTAL_VERSION}-alpine AS builder
 RUN apk add --no-cache bash dpkg git autoconf automake make clang clang-dev \
@@ -32,7 +33,7 @@ RUN git clone https://github.com/luckyframework/lucky_cli . && \
 FROM node:${NODE_VERSION}-alpine AS node
 
 FROM 84codes/crystal:${CRYSTAL_VERSION}-alpine
-RUN apk add --update --no-cache zsh dpkg git yaml-static postgresql-client tmux
+RUN apk add --update --no-cache bash dpkg git yaml-static postgresql-client tmux
 COPY --from=node /usr/lib /usr/lib
 COPY --from=node /usr/local/share /usr/local/share
 COPY --from=node /usr/local/lib /usr/local/lib
@@ -44,4 +45,6 @@ COPY --from=builder /usr/local/bin/lucky /usr/local/bin/lucky
 RUN npm install yarn -g --force
 WORKDIR /app
 ENV LD_PRELOAD /app/Hoard/libhoard.so
-ENTRYPOINT ["/bin/zsh"]
+ENV DATABASE_URL=${DATABASE_URL}
+ENTRYPOINT []
+CMD ["/usr/local/bin/lucky"]
