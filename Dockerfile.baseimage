@@ -34,7 +34,14 @@ FROM node:${NODE_VERSION}-alpine AS node
 
 FROM 84codes/crystal:${CRYSTAL_VERSION}-alpine
 WORKDIR /app
-RUN apk add --update --no-cache bash dpkg git yaml-static postgresql-client tmux
+RUN apk add --update --no-cache \
+  bash \
+  dpkg \
+  git \
+  gmp-dev \
+  postgresql-client \
+  tmux \
+  yaml-static
 COPY --from=node /usr/lib /usr/lib
 COPY --from=node /usr/local/share /usr/local/share
 COPY --from=node /usr/local/lib /usr/local/lib
