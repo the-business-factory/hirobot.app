@@ -50,7 +50,6 @@ COPY --from=node /usr/local/bin /usr/local/bin
 COPY --from=builder /usr/local/Hoard /usr/local/Hoard
 COPY --from=builder /usr/local/bin/overmind /usr/local/bin/overmind
 COPY --from=builder /usr/local/bin/lucky /usr/local/bin/lucky
-ENV LD_PRELOAD /usr/local/Hoard/libhoard.so
 ENV DATABASE_URL=${DATABASE_URL}
 ENTRYPOINT []
 CMD ["/bin/bash"]
