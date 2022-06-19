@@ -47,4 +47,4 @@ WORKDIR /app
 ENV LD_PRELOAD /app/Hoard/libhoard.so
 ENV DATABASE_URL=${DATABASE_URL}
 ENTRYPOINT []
-CMD ["/usr/local/bin/lucky"]
+CMD ["/usr/bin/bash"]
