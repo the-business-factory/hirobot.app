@@ -1,4 +1,6 @@
 services:
+  app:
+    build: .
   postgres:
     image: postgres:14-alpine
     environment:
@@ -10,6 +12,12 @@ services:
       - type: volume
         source: postgres_data_hirobot_app
         target: /var/lib/postgresql/data
+  baseimage:
+    build:
+      context: .
+      dockerfile: Dockerfile.baseimage
+    image: robcole/crystal:lucky
 
 volumes:
   postgres_data_hirobot_app:
+  node_modules:

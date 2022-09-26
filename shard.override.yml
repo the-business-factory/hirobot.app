@@ -5,7 +5,6 @@ dependencies:
   pg:
     github: the-business-factory/crystal-pg
     branch: lifeguard-at-the-pool-party
-  # db:
-  #   path: ../crystal-db
-  # pg:
-  #   path: ../
+  openssl_ext:
+    github: spider-gazelle/openssl_ext
+    branch: master

@@ -1,0 +1,11 @@
+steps:
+  - name: "Build and upload :docker: image"
+    command: "ARCH=arm64 script/build-and-upload-docker-image.sh"
+    agents:
+      queue: arm64
+    branches: "main preview/*"
+  - name: "Build and upload :docker: image"
+    command: "ARCH=amd64 script/build-and-upload-docker-image.sh"
+    agents:
+      queue: amd64
+    branches: "main preview/*"
