@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine
 RUN apk add --update --no-cache yaml-dev yaml-static coreutils \
     crystal shards \
     zlib-dev zlib-static libxml2-dev pcre-dev libevent-static \
