@@ -1,11 +1,20 @@
 steps:
   - name: "Build and upload :docker: image"
-    command: "ARCH=arm64 script/build-and-upload-docker-image.sh"
+    command: "ARCH=arm64 script/upload_crystal_base_images.sh"
     agents:
       queue: arm64
-    branches: "main preview/*"
+    env:
+      DOCKER_BUILDKIT: 1
+      COMPOSE_DOCKER_CLI_BUILD: 1
+      BUILDKIT_PROGRESS: plain
+    branches: "preview/*"
+    
   - name: "Build and upload :docker: image"
-    command: "ARCH=amd64 script/build-and-upload-docker-image.sh"
+    command: "ARCH=amd64 script/upload_crystal_base_images.sh"
     agents:
       queue: amd64
-    branches: "main preview/*"
+    env:
+      DOCKER_BUILDKIT: 1
+      COMPOSE_DOCKER_CLI_BUILD: 1
+      BUILDKIT_PROGRESS: plain
+    branches: "preview/*"
