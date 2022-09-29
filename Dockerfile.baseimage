@@ -1,10 +1,12 @@
-FROM alpine:latest
-RUN apk add --update --no-cache yaml-dev yaml-static coreutils \
-    crystal shards \
+FROM alpine as hoard
+RUN apk add --update --no-cache coreutils \
     zlib-dev zlib-static libxml2-dev pcre-dev libevent-static \
     libffi-dev git g++ make automake libtool autoconf curl \
-    musl-dev gcc pcre-dev libevent-dev clang clang-dev \
-    openssl openssl-dev openssl-libs-static
+    musl-dev gcc pcre-dev libevent-dev clang clang-dev
 WORKDIR /tmp
 RUN git clone https://github.com/emeryberger/Hoard
 RUN cd Hoard/src && make && cd ../.. && mv Hoard /usr/local/Hoard
+
+FROM 84codes/crystal:latest-alpine as common-crystal
+RUN apk add --update --no-cache yaml-dev yaml-static gmp-dev
+COPY --from=hoard /usr/local/Hoard /usr/local/Hoard

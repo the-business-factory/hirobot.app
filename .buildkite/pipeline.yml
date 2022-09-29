@@ -3,9 +3,32 @@ steps:
     command: "ARCH=arm64 script/build-and-upload-docker-image.sh"
     agents:
       queue: arm64
+    env:
+      DOCKER_BUILDKIT: 1
+      COMPOSE_DOCKER_CLI_BUILD: 1
+      BUILDKIT_PROGRESS: plain
     branches: "main preview/*"
   - name: "Build and upload :docker: image"
     command: "ARCH=amd64 script/build-and-upload-docker-image.sh"
     agents:
       queue: amd64
+    env:
+      DOCKER_BUILDKIT: 1
+      COMPOSE_DOCKER_CLI_BUILD: 1
+      BUILDKIT_PROGRESS: plain
     branches: "main preview/*"
+  # - wait
+  # - label: "deploy flyctl"
+  #   agents:
+  #     queue: amd64
+  #   env:
+  #     DOCKER_BUILDKIT: 1
+  #     COMPOSE_DOCKER_CLI_BUILD: 1
+  #     BUILDKIT_PROGRESS: plain
+  #     FLYCTL_INSTALL: "/var/lib/buildkite-agent/.fly"
+  #     PATH: "/var/lib/buildkite-agent/.fly/bin:$PATH"
+  #   branches: "main preview/*"
+  #   commands:
+  #     - curl -L https://fly.io/install.sh | bash
+  #     - flyctl auth docker
+  #     - flyctl deploy --local-only
