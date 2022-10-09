@@ -45,21 +45,9 @@ shards:
     git: https://github.com/naqvis/crystar.git
     version: 0.2.0+git.commit.56db8bb9dfbd5ed6d7908353405a5fae632a6561
 
-  csuuid:
-    git: https://github.com/wyhaines/csuuid.cr.git
-    version: 1.0.0+git.commit.812ee5e1252b27ee2895ec7897094cde3e4a5dc2
-
   db: # Overridden
     git: https://github.com/the-business-factory/crystal-db.git
     version: 0.11.0+git.commit.b3b4e6f6cc354429ec65e22d779d37d2398ba446
-
-  debug:
-    git: https://github.com/sija/debug.cr.git
-    version: 2.0.2
-
-  defined:
-    git: https://github.com/wyhaines/defined.cr.git
-    version: 0.3.6
 
   dexter:
     git: https://github.com/luckyframework/dexter.git
@@ -101,37 +89,13 @@ shards:
     git: https://github.com/luckyframework/lucky_task.git
     version: 0.1.1
 
-  nbchannel:
-    git: https://github.com/wyhaines/nbchannel.cr.git
-    version: 0.1.0+git.commit.ea6517a837270361695244d14c4b03d84660f113
-
   openssl_ext:
     git: https://github.com/spider-gazelle/openssl_ext.git
     version: 2.2.0
 
-  opentelemetry-api:
-    git: https://github.com/wyhaines/opentelemetry-api.cr.git
-    version: 0.5.0
-
-  opentelemetry-instrumentation:
-    git: https://github.com/wyhaines/opentelemetry-instrumentation.cr.git
-    version: 0.5.0
-
-  opentelemetry-sdk:
-    git: https://github.com/wyhaines/opentelemetry-sdk.cr.git
-    version: 0.5.1+git.commit.857f4dc24e3c4f2ed04b81118b39beccdecdb105
-
-  parse_date:
-    git: https://github.com/wyhaines/parsedate.cr.git
-    version: 0.1.2
-
   pg: # Overridden
     git: https://github.com/the-business-factory/crystal-pg.git
     version: 0.26.0+git.commit.aafb68acee6ea57f2f36828ddbf2af3cc1cfc1c1
-
-  protobuf:
-    git: https://github.com/jeromegn/protobuf.cr.git
-    version: 2.2.3
 
   pulsar:
     git: https://github.com/luckyframework/pulsar.git
@@ -144,10 +108,6 @@ shards:
   raven:
     git: https://github.com/sija/raven.cr.git
     version: 1.9.2
-
-  retriable:
-    git: https://github.com/sija/retriable.cr.git
-    version: 0.2.4
 
   selenium:
     git: https://github.com/matthewmcgarvey/selenium.cr.git
@@ -168,14 +128,6 @@ shards:
   teeplate:
     git: https://github.com/luckyframework/teeplate.git
     version: 0.8.5
-
-  time-ext:
-    git: https://github.com/wyhaines/time-ext.cr.git
-    version: 0.1.0+git.commit.175f658235fb6cdc9c804cb96da510fec27f4cd6
-
-  tracer:
-    git: https://github.com/wyhaines/tracer.cr.git
-    version: 0.3.1
 
   webdrivers:
     git: https://github.com/matthewmcgarvey/webdrivers.cr.git
