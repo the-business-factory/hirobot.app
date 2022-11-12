@@ -3,7 +3,7 @@ version: 2.0
 shards:
   ameba:
     git: https://github.com/crystal-ameba/ameba.git
-    version: 1.1.0
+    version: 1.3.0
 
   any_hash:
     git: https://github.com/sija/any_hash.cr.git
@@ -23,7 +23,7 @@ shards:
 
   bindata:
     git: https://github.com/spider-gazelle/bindata.git
-    version: 1.11.0
+    version: 1.11.1
 
   cadmium_transliterator:
     git: https://github.com/cadmiumcr/transliterator.git
@@ -105,9 +105,9 @@ shards:
     git: https://github.com/wyhaines/nbchannel.cr.git
     version: 0.1.0+git.commit.ea6517a837270361695244d14c4b03d84660f113
 
-  openssl_ext: # Overridden
+  openssl_ext:
     git: https://github.com/spider-gazelle/openssl_ext.git
-    version: 2.2.0+git.commit.e0506986eaa5886fcec7cbb255542a427e074f67
+    version: 2.2.0
 
   opentelemetry-api:
     git: https://github.com/wyhaines/opentelemetry-api.cr.git
@@ -115,11 +115,11 @@ shards:
 
   opentelemetry-instrumentation:
     git: https://github.com/wyhaines/opentelemetry-instrumentation.cr.git
-    version: 0.5.0
+    version: 0.5.1
 
   opentelemetry-sdk:
     git: https://github.com/wyhaines/opentelemetry-sdk.cr.git
-    version: 0.5.1+git.commit.857f4dc24e3c4f2ed04b81118b39beccdecdb105
+    version: 0.5.1
 
   parse_date:
     git: https://github.com/wyhaines/parsedate.cr.git

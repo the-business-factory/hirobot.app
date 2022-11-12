@@ -1,0 +1,12 @@
+FROM alpine:edge as hoard
+RUN apk add --update --no-cache coreutils \
+    zlib-dev zlib-static libxml2-dev pcre-dev libevent-static \
+    libffi-dev git g++ make automake libtool autoconf curl \
+    musl-dev gcc pcre-dev libevent-dev clang clang-dev
+WORKDIR /tmp
+RUN git clone https://github.com/emeryberger/Hoard
+RUN cd Hoard/src && make && cd ../.. && mv Hoard /usr/local/Hoard
+
+FROM robcole/crystal:1.6.2 as common-crystal
+RUN apk add --update --no-cache yaml-dev yaml-static gmp-dev
+COPY --from=hoard /usr/local/Hoard /usr/local/Hoard
