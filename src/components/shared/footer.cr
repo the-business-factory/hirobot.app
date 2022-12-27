@@ -13,7 +13,6 @@ class Shared::Footer < BaseComponent
 
   private def user_links
     if user
-      footer_anchor "Build a Collection"
       link "Sign Out",
         SignIns::Delete,
         class: "link link-hover",

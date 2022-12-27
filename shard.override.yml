@@ -5,3 +5,6 @@ dependencies:
   pg:
     github: the-business-factory/crystal-pg
     branch: lifeguard-at-the-pool-party
+  slack:
+    github: the-business-factory/slack.cr
+    branch: sign-in-with-slack
