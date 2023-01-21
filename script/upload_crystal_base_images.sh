@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ARCH=${ARCH:-arm64}
-CRYSTAL_VERSION=${CRYSTAL_VERSION:-1.6.2}
+CRYSTAL_VERSION=${CRYSTAL_VERSION:-1.7.1}
 
 echo "Building Crystal ${CRYSTAL_VERSION} Image for $ARCH"
 
