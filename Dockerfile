@@ -1,4 +1,4 @@
-FROM robcole/crystal:1.6.2 as common-crystal
+FROM robcole/crystal:1.7.1 as common-crystal
 ENV LUCKY_ENV=production
 
 FROM common-crystal as shards
@@ -15,6 +15,7 @@ RUN yarn prod
 
 FROM common-crystal as lucky_tasks_build
 ENV LUCKY_ENV=production
+WORKDIR /tasks_build
 COPY . .
 COPY --from=shards /shards/lib lib
 COPY --from=asset_build /assets/public public
@@ -31,7 +32,7 @@ RUN mv ./bin/app /usr/local/bin/webserver
 
 FROM alpine:edge as webserver
 WORKDIR /app
-RUN apk --no-cache add postgresql-client tzdata 
+RUN apk --no-cache add postgresql-client tzdata
 COPY --from=lucky_tasks_build /usr/local/bin/lucky /usr/local/bin/lucky
 COPY --from=lucky_webserver_build /usr/local/bin/webserver webserver
 COPY --from=asset_build /assets/public public

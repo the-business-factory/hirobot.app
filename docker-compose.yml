@@ -19,7 +19,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.baseimage
-    image: robcole/crystal:1.6.2
+    image: robcole/crystal:1.7.1
 
 volumes:
   postgres_data_hirobot_app:
