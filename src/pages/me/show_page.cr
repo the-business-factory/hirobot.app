@@ -6,16 +6,7 @@ class Me::ShowPage < UserLayout
   end
 
   private def helpful_tips
-    h3 "Next, you may want to:"
-    ul do
-      li { link_to_authentication_guides }
-      li "Modify this page: src/pages/me/show_page.cr"
-      li "Change where you go after sign in: src/actions/home/index.cr"
-    end
-  end
-
-  private def link_to_authentication_guides
-    a "Check out the authentication guides",
-      href: "https://luckyframework.org/guides/authentication"
+    br
+    h3 "More coming soon..."
   end
 end

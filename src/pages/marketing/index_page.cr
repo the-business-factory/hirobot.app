@@ -21,7 +21,7 @@ class Marketing::IndexPage < GuestLayout
           end
 
           url = Slack::SignInWithSlack.new.redirect_url
-          a "Sign In", href: url, class: "btn inactive-button"
+          a "Sign In With Slack", href: url, class: "btn inactive-button"
         end
       end
     end

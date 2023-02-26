@@ -166,8 +166,8 @@ shards:
     version: 0.9.3
 
   slack: # Overridden
-    path: ../slack.cr
-    version: 0.1.0
+    git: https://github.com/the-business-factory/slack.cr.git
+    version: 0.1.0+git.commit.edec155b9e8b1699cab39b1da43ba944fc787c04
 
   splay_tree_map:
     git: https://github.com/wyhaines/splay_tree_map.cr.git
