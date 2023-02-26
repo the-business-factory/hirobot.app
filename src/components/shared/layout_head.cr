@@ -10,6 +10,7 @@ class Shared::LayoutHead < BaseComponent
       meta name: "turbolinks-cache-control", content: "no-cache"
       csrf_meta_tags
       responsive_meta_tag
+      live_reload_connect_tag
     end
   end
 end

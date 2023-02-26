@@ -31,6 +31,9 @@ abstract class BrowserAction < Lucky::Action
   # 'include Auth::AllowGuests' in individual actions to skip sign in.
   include Auth::RequireSignIn
 
+  # Add support for Turbolinks redirects
+  include Lucky::RedirectableTurbolinksSupport
+
   # `expose` means that `current_user` will be passed to pages automatically.
   #
   # In default Lucky apps, the `MainLayout` declares it `needs current_user : User`

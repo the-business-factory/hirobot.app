@@ -27,11 +27,11 @@ class AuthenticationFlow < BaseFlow
   end
 
   def should_be_signed_in
-    sign_out_button.should be_on_page
+    self.should have_element("@nav-sign-out-button")
   end
 
   def should_have_password_error
-    el("body", text: "Password is wrong").should be_on_page
+    self.should have_element("body", text: "Password is wrong")
   end
 
   private def sign_out_button
