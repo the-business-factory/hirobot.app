@@ -8,7 +8,7 @@ targets:
   app:
     main: src/hirobot_app.cr
 
-crystal: 1.7.1
+crystal: 1.7.2
 
 dependencies:
   lucky:

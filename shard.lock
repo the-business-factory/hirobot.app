@@ -165,9 +165,9 @@ shards:
     git: https://github.com/luckyframework/shell-table.cr.git
     version: 0.9.3
 
-  slack: # Overridden
+  slack:
     git: https://github.com/the-business-factory/slack.cr.git
-    version: 0.1.0+git.commit.edec155b9e8b1699cab39b1da43ba944fc787c04
+    version: 0.1.0+git.commit.8c72f02d4c8a155deb4ac2bbec14a398e72daff2
 
   splay_tree_map:
     git: https://github.com/wyhaines/splay_tree_map.cr.git
