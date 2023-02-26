@@ -1,4 +1,4 @@
-FROM robcole/crystal:1.7.1 as common-crystal
+FROM robcole/crystal:1.7.2 as common-crystal
 ENV LUCKY_ENV=production
 
 FROM common-crystal as shards
