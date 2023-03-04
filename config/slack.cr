@@ -25,3 +25,7 @@ end
 Slack::AuthHandler.configure do |config|
   config.oauth_redirect_url = ENV["OAUTH_REDIRECT_URL"]
 end
+
+Slack::SignInWithSlack.configure do |config|
+  config.sign_in_redirect_url = ENV["SIGN_IN_REDIRECT_URL"]
+end

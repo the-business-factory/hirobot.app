@@ -167,7 +167,7 @@ shards:
 
   slack:
     git: https://github.com/the-business-factory/slack.cr.git
-    version: 0.1.0+git.commit.2900d8e71db8e883234c18912b6590ec3b3362a2
+    version: 0.1.0+git.commit.8c72f02d4c8a155deb4ac2bbec14a398e72daff2
 
   splay_tree_map:
     git: https://github.com/wyhaines/splay_tree_map.cr.git

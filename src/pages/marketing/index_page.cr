@@ -20,7 +20,8 @@ class Marketing::IndexPage < GuestLayout
             TEXT
           end
 
-          a "Coming Soon", class: "btn inactive-button"
+          url = Slack::SignInWithSlack.new.redirect_url
+          a "Sign In With Slack", href: url, class: "btn inactive-button"
         end
       end
     end
