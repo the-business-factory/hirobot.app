@@ -195,10 +195,10 @@
   resolved "https://registry.yarnpkg.com/@types/cors/-/cors-2.8.12.tgz#6b2c510a7ad7039e98e7b8d3d6598f4359e5c080"
   integrity sha512-vt+kDhq/M2ayberEtJcIN/hxXy1Pk+59g2FV/ZQceeaTyCtCucjL2Q7FXlFjtWn4n15KCr1NE2lNNFhp0lEThw==
 
-"@types/node@>=10.0.0", "@types/node@^18.14.6":
-  version "18.14.6"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.14.6.tgz#ae1973dd2b1eeb1825695bb11ebfb746d27e3e93"
-  integrity sha512-93+VvleD3mXwlLI/xASjw0FzKcwzl3OdTCzm1LaRfqgS21gfFtK3zDXM5Op9TeeMsJVOaJ2VRDpT9q4Y3d0AvA==
+"@types/node@>=10.0.0", "@types/node@^18.16.3":
+  version "18.16.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.16.3.tgz#6bda7819aae6ea0b386ebc5b24bdf602f1b42b01"
+  integrity sha512-OPs5WnnT1xkCBiuQrZA4+YAV4HEJejmHneyraIaxsbev5yCEr6KMwINNFP9wQeFIw8FWcoTqF3vQsa5CDaI+8Q==
 
 "@types/parse-unit@^1.0.1":
   version "1.0.1"
