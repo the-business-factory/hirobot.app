@@ -8,7 +8,7 @@ targets:
   app:
     main: src/hirobot_app.cr
 
-crystal: 1.7.2
+crystal: 1.9.2
 
 dependencies:
   lucky:
@@ -47,7 +47,7 @@ dependencies:
 development_dependencies:
   ameba:
     github: crystal-ameba/ameba
-    version: ~> 1.4.2
+    version: ~> 1.5.0
   lucky_flow:
     github: luckyframework/lucky_flow
     version: ~> 0.9.0

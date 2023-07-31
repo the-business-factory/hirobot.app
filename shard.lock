@@ -3,7 +3,7 @@ version: 2.0
 shards:
   ameba:
     git: https://github.com/crystal-ameba/ameba.git
-    version: 1.4.2
+    version: 1.5.0
 
   any_hash:
     git: https://github.com/sija/any_hash.cr.git
@@ -15,7 +15,7 @@ shards:
 
   avram:
     git: https://github.com/luckyframework/avram.git
-    version: 1.0.0-rc1
+    version: 1.0.0
 
   backtracer:
     git: https://github.com/sija/backtracer.cr.git
@@ -47,7 +47,7 @@ shards:
 
   csuuid:
     git: https://github.com/wyhaines/csuuid.cr.git
-    version: 1.0.0+git.commit.812ee5e1252b27ee2895ec7897094cde3e4a5dc2
+    version: 1.0.0+git.commit.41710010d5b8be818b1ca7b84ef412348e1912bd
 
   db: # Overridden
     git: https://github.com/the-business-factory/crystal-db.git
@@ -67,7 +67,7 @@ shards:
 
   exception_page:
     git: https://github.com/crystal-loot/exception_page.git
-    version: 0.3.0
+    version: 0.3.1
 
   fnv:
     git: https://github.com/naqvis/crystal-fnv.git
@@ -79,7 +79,7 @@ shards:
 
   html5:
     git: https://github.com/naqvis/crystal-html5.git
-    version: 0.4.0
+    version: 0.5.0
 
   jwt:
     git: https://github.com/crystal-community/jwt.git
@@ -87,7 +87,7 @@ shards:
 
   lucky:
     git: https://github.com/luckyframework/lucky.git
-    version: 1.0.0-rc1
+    version: 1.0.0
 
   lucky_cache:
     git: https://github.com/luckyframework/lucky_cache.git
@@ -99,11 +99,11 @@ shards:
 
   lucky_flow:
     git: https://github.com/luckyframework/lucky_flow.git
-    version: 0.9.0
+    version: 0.9.1
 
   lucky_router:
     git: https://github.com/luckyframework/lucky_router.git
-    version: 0.5.1
+    version: 0.5.2
 
   lucky_task:
     git: https://github.com/luckyframework/lucky_task.git
@@ -123,11 +123,11 @@ shards:
 
   opentelemetry-instrumentation:
     git: https://github.com/wyhaines/opentelemetry-instrumentation.cr.git
-    version: 0.5.1
+    version: 0.5.3
 
   opentelemetry-sdk:
     git: https://github.com/wyhaines/opentelemetry-sdk.cr.git
-    version: 0.5.1
+    version: 0.6.1
 
   parse_date:
     git: https://github.com/wyhaines/parsedate.cr.git
@@ -151,15 +151,15 @@ shards:
 
   raven:
     git: https://github.com/sija/raven.cr.git
-    version: 1.9.2
+    version: 1.9.3
 
   retriable:
     git: https://github.com/sija/retriable.cr.git
     version: 0.2.4
 
   selenium:
-    git: https://github.com/matthewmcgarvey/selenium.cr.git
-    version: 0.10.0
+    git: https://github.com/crystal-loot/selenium.cr.git
+    version: 0.12.0
 
   shell-table:
     git: https://github.com/luckyframework/shell-table.cr.git
@@ -186,11 +186,11 @@ shards:
     version: 0.3.1
 
   webdrivers:
-    git: https://github.com/matthewmcgarvey/webdrivers.cr.git
-    version: 0.4.1
+    git: https://github.com/crystal-loot/webdrivers.cr.git
+    version: 0.4.2
 
   webless:
-    git: https://github.com/matthewmcgarvey/webless.git
+    git: https://github.com/crystal-loot/webless.git
     version: 0.1.0
 
   wordsmith:
