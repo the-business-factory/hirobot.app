@@ -1,7 +1,7 @@
-dependencies:
-  db:
-    github: the-business-factory/crystal-db
-    branch: pool-party
-  pg:
-    github: the-business-factory/crystal-pg
-    branch: lifeguard-at-the-pool-party
+# dependencies:
+#   db:
+#     github: the-business-factory/crystal-db
+#     branch: pool-party
+#   pg:
+#     github: the-business-factory/crystal-pg
+#     branch: lifeguard-at-the-pool-party
